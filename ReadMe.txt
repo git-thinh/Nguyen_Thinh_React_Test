@@ -1,4 +1,4 @@
-Help:
+﻿Help:
 
 + Open DOS at path ..\Nguyen_Thinh_React_Test
 + cd Nguyen_Thinh_React_Test
@@ -71,6 +71,29 @@ Help:
 			  },
 			  ...
 			};
++ Write components:
+	- npm install --save react react-dom
+	- Write code of React into the file "src/index.js" as following:
+		import React from 'react';
+		import ReactDOM from 'react-dom';
+		import CustomerList from './components/CustomerList';
+
+		const customers = [
+		  {
+			  id: 1,
+			  name: 'Nguyễn Văn A'
+		  },
+		  {
+			  id: 2,
+			  name: 'Nguyễn Văn B'
+		  }
+		];
+
+		ReactDOM.render(
+			<CustomerList customers={customers} />,
+			document.getElementById('app')
+		);
+	- Make file: src/components/CustomerList.js
 --------------------------------------------------------------
 + Run command on terminal: 
 	- npm run build -> for build source into folder ./build

@@ -2,7 +2,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './src/index.js'
+    ],
+
+    module: {
+        loaders: [{
+            test: /\.js?$/,
+            exclude: /node_modules/,
+            loader: 'react-hot!babel'
+        }]
+    },
 
     output: {
         path: __dirname + '/build',
@@ -11,7 +23,8 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: './build'
+        contentBase: './build',
+        hot: true
     },
 
     plugins: [

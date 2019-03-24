@@ -44,6 +44,34 @@ Help:
 
 + Make files as following: ./src/index.html, ./src/index.js
 
+--------------------------------------------------------------
++ Install packs:
+	- Hot reloading: npm install --save-dev react-hot-loader
+		-> When changed source code then browser will reloaded it.
+	- Babel: npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-1 babel-preset-stage-2
+		-> allow used ES6(ES2015)(convert to ES5) into this project.
+		-> You must be create file ".babelrc" as following:
+			{
+			  "presets": [
+				"es2015",
+				"react",
+				"stage-1",
+				"stage-2"
+			  ]
+			}
+		-> You must be updated file "webpack.config.js" as following:
+			module.exports = {
+			  ...
+			  module: {
+				loaders: [{
+				  test: /\.js?$/,
+				  exclude: /node_modules/,
+				  loader: 'react-hot!babel'
+				}]
+			  },
+			  ...
+			};
+--------------------------------------------------------------
 + Run command on terminal: 
 	- npm run build -> for build source into folder ./build
 	- npm start
